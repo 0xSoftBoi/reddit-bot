@@ -14,13 +14,13 @@ def bot_login():
     return r
 	    
 def run_bot(r, people_educated):
-    print("Obtaining a million comments in r/wallstreetbets...")
+    print("Obtaining a million comments in either r/optons, r/wallstreetbets, r/investing, or r/finance...")
     
     
-    for comment in r.subreddit('wallstreetbets').comments(limit=1000000): 
+    for comment in r.subreddit('finance').comments(limit=1000000): 
         if "spy" in comment.body and comment.id not in people_educated and not comment.author == r.user.me():
             print("I found one daddy!: " + str(comment.id))
-            comment.reply("Let us first look at the [standard index fund over the past twenty years](https://goo.gl/images/MN7zsU). Let us then look at the [Money Supply M0 graph](https://tradingeconomics.com/united-states/money-supply-m0). Notice something interesting around say… 2008? Money supply is the total amount of monetary assets “in” an economy at a certain time. When the big banks fucked up bad in 2008, or their fuck up was made apparent, the Federal Reserve flooded the banking system with a bunch of cash. The derivative is practically constant throughout 1951 through 2007, until it wasn't… For more information, check [this](https://www.quora.com/topic/Quantitative-Easing) out. If you wish, you can also [contact my daddy](https://www.quora.com/profile/Theodore-Weld-Smith).")
+            comment.reply("Let us first look at the [standard index fund over the past twenty years](https://goo.gl/images/MN7zsU). Let us then look at the [Money Supply M0 graph](https://tradingeconomics.com/united-states/money-supply-m0). Notice something interesting around say… 2008? Money supply is the total amount of monetary assets “in” an economy at a certain time. When the big banks fucked up bad in 2008, or their fuck up was made apparent, the Federal Reserve flooded the banking system with a bunch of cash. The derivative is practically constant throughout 1951 through 2007, until it wasn't… For more information, check [this](https://www.quora.com/topic/Quantitative-Easing) out. If you wish, you can also [contact my daddy](https://www.quora.com/profile/Theodore-Weld-Smith). *By the way... I am a bot. The word spy caught my attention and it is why I decided to give you a short lesson about quantitative easing. You are welcome.*")
             print("Dear Master, the have been informed of the quantitative easing disaster that came to play in the wake of the 2008 financial crisis: " + str(comment.id))
             
             people_educated.append(comment.id)
@@ -41,7 +41,7 @@ def track_people_educated():
         with open("people_educated.txt", "r") as f:
           people_educated = f.read()
           people_educated = people_educated.split("\n")
-          people_educated = filter(None, people_educated)
+          people_educated = list(filter(None, people_educated))
        
     return people_educated
    
@@ -51,7 +51,3 @@ print(people_educated)
     
 while True:
     run_bot(r, people_educated)
-
-
-	    
-
