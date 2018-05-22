@@ -31,8 +31,8 @@ def run_bot(r, people_educated):
             
     print(people_educated)
     
-    #print("Sleeping for a bit...")       
-    #time.sleep(1)
+    print("Sleeping for a bit...")       
+    time.sleep(1)
     
 def track_people_educated():
     if not os.path.isfile("people_educated.txt"):
