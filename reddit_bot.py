@@ -14,7 +14,7 @@ def bot_login():
     return r
 	    
 def run_bot(r, people_educated):
-    print("Obtaining a million comments in either r/optons, r/wallstreetbets, r/investing, or r/finance...")
+    print("Obtaining a million comments in either r/options, r/wallstreetbets, r/investing, or r/finance...")
     
     
     for comment in r.subreddit('finance').comments(limit=1000000): 
