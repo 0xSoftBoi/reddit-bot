@@ -14,13 +14,13 @@ def bot_login():
     return r
 	    
 def run_bot(r, people_educated):
-    print("Obtaining a million comments in either r/options, r/wallstreetbets, r/investing, or r/finance...")
+    print("Obtaining a million comments in either r/options, r/wallstreetbets, r/investing, r/algotrading, r/StockMarket or r/finance...")
     
     
-    for comment in r.subreddit('finance').comments(limit=1000000): 
-        if "spy" in comment.body and comment.id not in people_educated and not comment.author == r.user.me():
+    for comment in r.subreddit('wallstreetbets').comments(limit=1000000): 
+        if "SPY" in comment.body and comment.id not in people_educated and not comment.author == r.user.me():
             print("I found one daddy!: " + str(comment.id))
-            comment.reply("Let us first look at the [standard index fund over the past twenty years](https://goo.gl/images/MN7zsU). Let us then look at the [Money Supply M0 graph](https://tradingeconomics.com/united-states/money-supply-m0). Notice something interesting around say… 2008? Money supply is the total amount of monetary assets “in” an economy at a certain time. When the big banks fucked up bad in 2008, or their fuck up was made apparent, the Federal Reserve flooded the banking system with a bunch of cash. The derivative is practically constant throughout 1951 through 2007, until it wasn't… For more information, check [this](https://www.quora.com/topic/Quantitative-Easing) out. If you wish, you can also [contact my daddy](https://www.quora.com/profile/Theodore-Weld-Smith). *By the way... I am a bot. The word spy caught my attention and it is why I decided to give you a short lesson about quantitative easing. You are welcome.*")
+            comment.reply("Let us first look at the [standard index fund over the past twenty years](https://goo.gl/images/MN7zsU). Let us then look at the [Money Supply M0 graph](https://tradingeconomics.com/united-states/money-supply-m0). Notice something interesting around say… 2008? Money supply is the total amount of monetary assets “in” an economy at a certain time. When the big banks fucked up bad in 2008, or their fuck up was made apparent, the Federal Reserve flooded the banking system with a bunch of cash. The derivative is practically constant throughout 1951 through 2007, until it wasn't… For more information, check [this](https://www.quora.com/topic/Quantitative-Easing) out. If you wish, you can also [contact my daddy](https://www.quora.com/profile/Theodore-Weld-Smith). *By the way... I am a bot. The ticker for the S&P 500 index caught my attention and it is why I decided to give you a short lesson about quantitative easing. You are welcome.*")
             print("Dear Master, the have been informed of the quantitative easing disaster that came to play in the wake of the 2008 financial crisis: " + str(comment.id))
             
             people_educated.append(comment.id)
@@ -31,8 +31,8 @@ def run_bot(r, people_educated):
             
     print(people_educated)
     
-    print("Sleeping for ten minutes...")       
-    time.sleep(600)
+    #print("Sleeping for a bit...")       
+    #time.sleep(1)
     
 def track_people_educated():
     if not os.path.isfile("people_educated.txt"):
