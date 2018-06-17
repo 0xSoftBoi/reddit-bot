@@ -1,0 +1,4 @@
+username = "quanteasingbot"
+password = "thebotspassword"
+client_id = "botsAPIkey"
+client_secret = "botsAPIsecret"
